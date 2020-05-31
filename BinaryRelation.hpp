@@ -16,11 +16,13 @@ public:
 
     ~BinaryRelation();
 
-    void addRelation(std::pair<T,U> newPair);
+    void addRelation(T newFirst, U newSecond);
 
     void printAllRelations();
 private:
-    std::pair<T, U> *fRelations;
+    T *fRelationsFirst;
+    U *fRelationsSecond;
+
     unsigned int fCapacity;
     unsigned int fSize;
 

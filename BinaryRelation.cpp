@@ -11,7 +11,8 @@ BinaryRelation<T, U>::BinaryRelation(unsigned int initialCapacity)
 {
     fCapacity = initialCapacity;
     fSize = 0;
-    fRelations = new std::pair<T, U>[initialCapacity];
+    fRelationsFirst = new T[initialCapacity];
+    fRelationsSecond = new U[initialCapacity];
 }
 
 template<class T, class U>
@@ -23,7 +24,8 @@ BinaryRelation<T, U>::~BinaryRelation()
 template<class T, class U>
 void BinaryRelation<T, U>::delMem()
 {
-    delete[] fRelations;
+    delete[] fRelationsFirst;
+    delete[] fRelationsSecond;
 }
 
 template<class T, class U>
@@ -35,11 +37,13 @@ BinaryRelation<T, U>::BinaryRelation(const BinaryRelation<T, U> &other)
 template<class T, class U>
 void BinaryRelation<T, U>::copy(const BinaryRelation<T, U> &other)
 {
-    fRelations = new std::pair<T, U>[other.fCapacity];
+    fRelationsFirst = new T[other.fCapacity];
+    fRelationsSecond = new U[other.fCapacity];
 
     for (int i = 0; i < other.fSize; i++)
     {
-        fRelations[i] = other.fRelations[i];
+        fRelationsFirst[i] = other.fRelationsFirst[i];
+        fRelationsSecond[i] = other.fRelationsSecond[i];
     }
 }
 
@@ -58,27 +62,32 @@ BinaryRelation<T, U> &BinaryRelation<T, U>::operator=(const BinaryRelation<T, U>
 }
 
 template<class T, class U>
-void BinaryRelation<T, U>::addRelation(std::pair<T, U> newPair)
+void BinaryRelation<T, U>::addRelation(T newFirst, U newSecond)
 {
     if (fSize <= fCapacity - 1)
         resizeRelations(fCapacity * 2);
 
-    fRelations[fSize] = newPair;
+    fRelationsFirst[fSize] = newFirst;
+    fRelationsSecond[fSize] = newSecond;
     fSize++;
 }
 
 template<class T, class U>
 void BinaryRelation<T, U>::resizeRelations(unsigned int newCapacity)
 {
-    std::pair<T, U> *tempNewRelations = new std::pair<T, U>[newCapacity];
+    T *tempNewRelationsFirst = new T[newCapacity];
+    U *tempNewRelationsSecond = new U[newCapacity];
 
     for (int i = 0; i < fSize; i++)
     {
-        tempNewRelations[i] = fRelations[i];
+        tempNewRelationsFirst[i] = fRelationsFirst[i];
+        tempNewRelationsSecond[i] = fRelationsSecond[i];
     }
+
     delMem();
 
-    fRelations = tempNewRelations;
+    fRelationsFirst = tempNewRelationsFirst;
+    fRelationsSecond = tempNewRelationsSecond;
 }
 
 template<class T, class U>
@@ -86,7 +95,7 @@ void BinaryRelation<T, U>::printAllRelations()
 {
     for (int i = 0; i < fSize; i++)
     {
-        std::cout << fRelations[i] << " " << fRelations[i] << "\n";
+        std::cout << fRelationsFirst[i] << " " << fRelationsSecond[i] << "\n";
     }
 
 }
