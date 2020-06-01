@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cstring>
 
 #define DEFAULT_INITIAL_CAPACITY 10
 
@@ -18,7 +19,7 @@ public:
 
     BinaryRelation &BinaryRelation::operator+(const BinaryRelation<T, U> &other);
 
-    BinaryRelation &operator!();
+    BinaryRelation<U, T> &operator!();
 
     bool &operator()(const T &first, const U &second);
 
@@ -58,6 +59,7 @@ BinaryRelation<T, U>::BinaryRelation()
     fRelationsSecond = new U[fCapacity];
 }
 
+
 template<typename T, typename U>
 BinaryRelation<T, U>::BinaryRelation(unsigned int initialCapacity)
 {
@@ -67,11 +69,13 @@ BinaryRelation<T, U>::BinaryRelation(unsigned int initialCapacity)
     fRelationsSecond = new U[initialCapacity];
 }
 
+
 template<typename T, typename U>
 BinaryRelation<T, U>::~BinaryRelation()
 {
     delMem();
 }
+
 
 template<typename T, typename U>
 void BinaryRelation<T, U>::delMem()
@@ -80,11 +84,13 @@ void BinaryRelation<T, U>::delMem()
     delete[] fRelationsSecond;
 }
 
+
 template<typename T, typename U>
 BinaryRelation<T, U>::BinaryRelation(const BinaryRelation<T, U> &other)
 {
     copy(other);
 }
+
 
 template<typename T, typename U>
 void BinaryRelation<T, U>::copy(const BinaryRelation<T, U> &other)
@@ -117,6 +123,7 @@ BinaryRelation<T, U> &BinaryRelation<T, U>::operator=(const BinaryRelation<T, U>
     return *this;
 }
 
+
 template<typename T, typename U>
 void BinaryRelation<T, U>::addRelation(const T &newFirst, const U &newSecond)
 {
@@ -127,6 +134,7 @@ void BinaryRelation<T, U>::addRelation(const T &newFirst, const U &newSecond)
     fRelationsSecond[fSize] = newSecond;
     fSize++;
 }
+
 
 template<typename T, typename U>
 void BinaryRelation<T, U>::resizeRelations(unsigned int newCapacity)
@@ -146,6 +154,7 @@ void BinaryRelation<T, U>::resizeRelations(unsigned int newCapacity)
     fRelationsSecond = tempNewRelationsSecond;
 }
 
+
 template<typename T, typename U>
 void BinaryRelation<T, U>::printAllRelations()
 {
@@ -155,6 +164,7 @@ void BinaryRelation<T, U>::printAllRelations()
     }
 
 }
+
 
 template<typename T, typename U>
 bool &BinaryRelation<T, U>::operator()(const T &first, const U &second)
@@ -173,10 +183,11 @@ bool &BinaryRelation<T, U>::operator()(const T &first, const U &second)
     return inRelation;
 }
 
+
 template<typename T, typename U>
-BinaryRelation<T, U> &BinaryRelation<T, U>::operator!()
+BinaryRelation<U, T> &BinaryRelation<T, U>::operator!()
 {
-    BinaryRelation<T, U> *tempRelation = new BinaryRelation<T, U>(fCapacity);
+    BinaryRelation<U, T> *tempRelation = new BinaryRelation<U, T>(fCapacity);
     tempRelation->fCapacity = fCapacity;
     tempRelation->fSize = fSize;
 
@@ -188,6 +199,7 @@ BinaryRelation<T, U> &BinaryRelation<T, U>::operator!()
 
     return *tempRelation;
 }
+
 
 template<typename T, typename U>
 BinaryRelation<T, U> &BinaryRelation<T, U>::operator+(const BinaryRelation<T, U> &other)
@@ -219,6 +231,8 @@ BinaryRelation<T, U> &BinaryRelation<T, U>::operator+(const BinaryRelation<T, U>
     return *tempRelation;
 }
 
+
+
 template<typename T, typename U>
 void BinaryRelation<T, U>::removeDuplicates()
 {
@@ -235,6 +249,7 @@ void BinaryRelation<T, U>::removeDuplicates()
         }
     }
 }
+
 
 template<typename T, typename U>
 void BinaryRelation<T, U>::removePair(unsigned int pairNumber)
@@ -261,3 +276,4 @@ void BinaryRelation<T, U>::removePair(unsigned int pairNumber)
     fRelationsSecond = tempRelationsSecond;
     fSize--;
 }
+
