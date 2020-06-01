@@ -13,9 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ec92b393-5048-4618-83e9-4a590e01fce6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinaryRelation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BinaryRelation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinaryRelation.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BinaryRelation.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/BinaryRelation.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590945082057</updated>
-      <workItem from="1590945085115" duration="5713000" />
+      <workItem from="1590945085115" duration="5800000" />
+      <workItem from="1591008003414" duration="646000" />
     </task>
     <task id="LOCAL-00001" summary="first tests(Not compiling)">
       <created>1590950785597</created>
@@ -71,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590950785597</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pair swapped for two arrays">
+      <created>1590951222083</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590951222083</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -79,13 +87,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first tests(Not compiling)" />
-    <option name="LAST_COMMIT_MESSAGE" value="first tests(Not compiling)" />
+    <MESSAGE value="pair swapped for two arrays" />
+    <option name="LAST_COMMIT_MESSAGE" value="pair swapped for two arrays" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590950784891">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590951221366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590950784891" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590951221366" />
     <state x="772" y="418" key="Github.ShareDialog" timestamp="1590945107761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -94,9 +103,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590945112846" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590950787355">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590951224067">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590950787355" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590951224067" />
   </component>
 </project>
