@@ -16,6 +16,8 @@ public:
 
     BinaryRelation &BinaryRelation::operator=(const BinaryRelation<T, U> &other);
 
+    BinaryRelation &BinaryRelation::operator+(const BinaryRelation<T, U> &other);
+
     BinaryRelation &operator!();
 
     bool &operator()(const T &first, const U &second);
@@ -38,7 +40,11 @@ private:
 
     void copy(const BinaryRelation<T, U> &other);
 
-    void resizeRelations(unsigned int newCapacity);
+    void resizeRelations(unsigned int newCapacity); // FIX
+
+    void removeDuplicates();
+
+    void removePair(unsigned int pairNumber);
 
 };
 
@@ -92,7 +98,7 @@ void BinaryRelation<T, U>::copy(const BinaryRelation<T, U> &other)
     fCapacity = other.fCapacity;
     fSize = other.fSize;
 
-    for (int i = 0; i < other.fSize; i++)
+    for (int i = 0; i < other.fSize; ++i)
     {
         fRelationsFirst[i] = other.fRelationsFirst[i];
         fRelationsSecond[i] = other.fRelationsSecond[i];
@@ -128,7 +134,7 @@ void BinaryRelation<T, U>::resizeRelations(unsigned int newCapacity)
     T *tempNewRelationsFirst = new T[newCapacity];
     U *tempNewRelationsSecond = new U[newCapacity];
 
-    for (int i = 0; i < fSize; i++)
+    for (int i = 0; i < fSize; ++i)
     {
         tempNewRelationsFirst[i] = fRelationsFirst[i];
         tempNewRelationsSecond[i] = fRelationsSecond[i];
@@ -143,7 +149,7 @@ void BinaryRelation<T, U>::resizeRelations(unsigned int newCapacity)
 template<typename T, typename U>
 void BinaryRelation<T, U>::printAllRelations()
 {
-    for (int i = 0; i < fSize; i++)
+    for (int i = 0; i < fSize; ++i)
     {
         std::cout << fRelationsFirst[i] << " " << fRelationsSecond[i] << "\n";
     }
@@ -155,7 +161,7 @@ bool &BinaryRelation<T, U>::operator()(const T &first, const U &second)
 {
     bool inRelation = false;
 
-    for (int i = 0; i < fSize; i++)
+    for (int i = 0; i < fSize; ++i)
     {
         if (fRelationsFirst[i] == first && fRelationsSecond[i] == second)
         {
@@ -174,11 +180,84 @@ BinaryRelation<T, U> &BinaryRelation<T, U>::operator!()
     tempRelation->fCapacity = fCapacity;
     tempRelation->fSize = fSize;
 
-    for (int i = 0; i < fSize; i++)
+    for (int i = 0; i < fSize; ++i)
     {
         tempRelation->fRelationsFirst[i] = fRelationsSecond[i];
         tempRelation->fRelationsSecond[i] = fRelationsFirst[i];
     }
 
     return *tempRelation;
+}
+
+template<typename T, typename U>
+BinaryRelation<T, U> &BinaryRelation<T, U>::operator+(const BinaryRelation<T, U> &other)
+{
+    unsigned int tempCapacity = fSize + other.fSize;
+
+    BinaryRelation<T, U> *tempRelation = new BinaryRelation<T, U>(tempCapacity);
+    tempRelation->fCapacity = tempCapacity;
+    tempRelation->fSize = fSize + other.fSize;
+
+    unsigned int counter = 0;
+
+    for (int i = 0; i < fSize; ++i)
+    {
+        tempRelation->fRelationsFirst[counter] = fRelationsFirst[i];
+        tempRelation->fRelationsSecond[counter] = fRelationsSecond[i];
+        counter++;
+    }
+
+    for (int i = 0; i < other.fSize; ++i)
+    {
+        tempRelation->fRelationsFirst[counter] = other.fRelationsFirst[i];
+        tempRelation->fRelationsSecond[counter] = other.fRelationsSecond[i];
+        counter++;
+    }
+
+    tempRelation->removeDuplicates();
+
+    return *tempRelation;
+}
+
+template<typename T, typename U>
+void BinaryRelation<T, U>::removeDuplicates()
+{
+    for (int i = 0; i < fSize; ++i)
+    {
+        for (int j = i + 1; j < fSize; ++j)
+        {
+            if (fRelationsFirst[i] == fRelationsFirst[j] &&
+                fRelationsSecond[i] == fRelationsSecond[j])
+            {
+                removePair(j);
+            }
+
+        }
+    }
+}
+
+template<typename T, typename U>
+void BinaryRelation<T, U>::removePair(unsigned int pairNumber)
+{
+    if (pairNumber >= fSize)
+        throw std::exception("Invalid pair number! \n");
+
+    T *tempRelationsFirst = new T[fSize - 1];
+    U *tempRelationsSecond = new U[fSize - 1];
+
+    unsigned int newCounter = 0;
+    for (int i = 0; i < fSize; ++i)
+    {
+        if (i == pairNumber)
+            continue;
+
+        tempRelationsFirst[newCounter] = fRelationsFirst[i];
+        tempRelationsSecond[newCounter] = fRelationsSecond[i];
+        newCounter++;
+    }
+
+    delMem();
+    fRelationsFirst = tempRelationsFirst;
+    fRelationsSecond = tempRelationsSecond;
+    fSize--;
 }
