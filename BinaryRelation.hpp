@@ -251,6 +251,24 @@ void BinaryRelation<T, U>::removeDuplicates()
 }
 
 
+template<>
+void BinaryRelation<int, const char *>::removeDuplicates()
+{
+    for (int i = 0; i < fSize; ++i)
+    {
+        for (int j = i + 1; j < fSize; ++j)
+        {
+            if (fRelationsFirst[i] == fRelationsFirst[j] &&
+                strcmp(fRelationsSecond[i],fRelationsSecond[j]) == 0)
+            {
+                removePair(j);
+            }
+
+        }
+    }
+}
+
+
 template<typename T, typename U>
 void BinaryRelation<T, U>::removePair(unsigned int pairNumber)
 {
@@ -276,4 +294,3 @@ void BinaryRelation<T, U>::removePair(unsigned int pairNumber)
     fRelationsSecond = tempRelationsSecond;
     fSize--;
 }
-
