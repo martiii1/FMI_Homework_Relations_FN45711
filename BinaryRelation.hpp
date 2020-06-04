@@ -23,6 +23,8 @@ public:
 
     bool &operator()(const T &first, const U &second);
 
+    U &operator[](const T &first);
+
     ~BinaryRelation();
 
     void addRelation(const T &newFirst, const U &newSecond);
@@ -293,4 +295,14 @@ void BinaryRelation<T, U>::removePair(unsigned int pairNumber)
     fRelationsFirst = tempRelationsFirst;
     fRelationsSecond = tempRelationsSecond;
     fSize--;
+}
+
+template<typename T, typename U>
+U &BinaryRelation<T, U>::operator[](const T &first)
+{
+    for (int i = 0; i < fSize; ++i)
+    {
+        if(fRelationsFirst[i] == first)
+            return fRelationsSecond[i];
+    }
 }

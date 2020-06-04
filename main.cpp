@@ -27,6 +27,10 @@ int main()
     test33.printAllRelations();
     std::cout << "\n\n\n";
 
+
+    std::cout << test33[2];
+    std::cout << "\n\n\n";
+
     //test33 = !test33;
     //test33.printAllRelations();
     //std::cout << "\n\n\n";
