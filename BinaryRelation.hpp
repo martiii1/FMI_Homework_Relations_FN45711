@@ -577,9 +577,7 @@ bool BinaryRelation<T, U>::injection()
         for (int j = i + 1; j < fSize; ++j)
         {
             if(fRelationsSecond[i] == fRelationsSecond[j])
-            {
                 return false;
-            }
 
         }
     }

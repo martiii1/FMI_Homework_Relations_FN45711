@@ -10,6 +10,12 @@ public:
     KnowledgeBse();
     KnowledgeBse(unsigned int initialCapacity);
 
+    void addRelation(BinaryRelation<T, U> &other);
+
+    void printKnowledgeBase();
+
+    //BinaryRelation<T,U> &BinaryRelation<T,U>::operator=(const BinaryRelation<T, U> &other);
+
 private:
     BinaryRelation<T,U> *fAllRelations;
     unsigned int fSize;
@@ -70,4 +76,21 @@ void KnowledgeBse<T, U>::resizeKnowledgeBse(unsigned int newCapacity)
     delMem();
 
     fAllRelations = fAllRelationsTemp;
+}
+
+template<typename T, typename U>
+void KnowledgeBse<T, U>::addRelation(BinaryRelation<T, U> &other)
+{
+    if(fSize >= fCapacity - 1)
+        resizeKnowledgeBse(fCapacity * 2);
+
+    fAllRelations[fSize] = other;
+
+}
+
+template<typename T, typename U>
+void KnowledgeBse<T, U>::printKnowledgeBase()
+{
+    
+
 }
