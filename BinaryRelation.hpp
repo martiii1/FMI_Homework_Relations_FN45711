@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 
-#define DEFAULT_INITIAL_CAPACITY 10
+#define DEFAULT_INITIAL_CAPACITY 20
 
 template<typename T, typename U>
 class BinaryRelation
@@ -19,9 +19,13 @@ public:
 
     BinaryRelation &BinaryRelation::operator+(const BinaryRelation<T, U> &other);
 
+    BinaryRelation &BinaryRelation::operator*(const BinaryRelation<T, U> &other);
+
     BinaryRelation<U, T> &operator!();
 
     bool &operator()(const T &first, const U &second);
+
+    T &operator()(const U &second);
 
     U &operator[](const T &first);
 
@@ -97,9 +101,6 @@ BinaryRelation<T, U>::BinaryRelation(const BinaryRelation<T, U> &other)
 template<typename T, typename U>
 void BinaryRelation<T, U>::copy(const BinaryRelation<T, U> &other)
 {
-    fRelationsFirst = nullptr;
-    fRelationsSecond = nullptr;
-
     fRelationsFirst = new T[other.fCapacity];
     fRelationsSecond = new U[other.fCapacity];
 
@@ -164,7 +165,6 @@ void BinaryRelation<T, U>::printAllRelations()
     {
         std::cout << fRelationsFirst[i] << " " << fRelationsSecond[i] << "\n";
     }
-
 }
 
 
@@ -234,7 +234,6 @@ BinaryRelation<T, U> &BinaryRelation<T, U>::operator+(const BinaryRelation<T, U>
 }
 
 
-
 template<typename T, typename U>
 void BinaryRelation<T, U>::removeDuplicates()
 {
@@ -261,7 +260,7 @@ void BinaryRelation<int, const char *>::removeDuplicates()
         for (int j = i + 1; j < fSize; ++j)
         {
             if (fRelationsFirst[i] == fRelationsFirst[j] &&
-                strcmp(fRelationsSecond[i],fRelationsSecond[j]) == 0)
+                strcmp(fRelationsSecond[i], fRelationsSecond[j]) == 0)
             {
                 removePair(j);
             }
@@ -302,7 +301,43 @@ U &BinaryRelation<T, U>::operator[](const T &first)
 {
     for (int i = 0; i < fSize; ++i)
     {
-        if(fRelationsFirst[i] == first)
+        if (fRelationsFirst[i] == first)
             return fRelationsSecond[i];
     }
+}
+
+template<typename T, typename U>
+T &BinaryRelation<T, U>::operator()(const U &second)
+{
+    for (int i = 0; i < fSize; ++i)
+    {
+        if (fRelationsSecond[i] == second)
+            return fRelationsFirst[i]
+    }
+}
+
+template<typename T, typename U>
+BinaryRelation<T, U> &BinaryRelation<T, U>::operator*(const BinaryRelation<T, U> &other)
+{
+    BinaryRelation<T,U> *tempRelation = new BinaryRelation<T, U>(fSize + other.fSize);
+    tempRelation->fCapacity = fSize + other.fSize;
+
+    unsigned int counter = 0;
+
+    for (int i = 0; i < fSize; ++i)
+    {
+        for (int j = 0; j < other.fSize; ++j)
+        {
+            if (fRelationsSecond[i] == other.fRelationsFirst[j])
+            {
+                tempRelation->fRelationsFirst[counter] = fRelationsFirst[i];
+                tempRelation->fRelationsSecond[counter] = other.fRelationsSecond[j];
+                counter++;
+            }
+        }
+    }
+
+    tempRelation->fSize = counter;
+
+    return *tempRelation;
 }

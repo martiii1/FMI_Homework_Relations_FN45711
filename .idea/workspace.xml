@@ -11,9 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec92b393-5048-4618-83e9-4a590e01fce6" name="Default Changelist" comment="remove duplicates working with &lt;int,const char*&gt;">
+    <list default="true" id="ec92b393-5048-4618-83e9-4a590e01fce6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/KnowledgeBase.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinaryRelation.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/BinaryRelation.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +39,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FMIBOOK_FN45711" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -64,7 +67,8 @@
       <workItem from="1590945085115" duration="5800000" />
       <workItem from="1591008003414" duration="17209000" />
       <workItem from="1591106327157" duration="2000" />
-      <workItem from="1591266188832" duration="2083000" />
+      <workItem from="1591266188832" duration="10429000" />
+      <workItem from="1591339105335" duration="1963000" />
     </task>
     <task id="LOCAL-00001" summary="first tests(Not compiling)">
       <created>1590950785597</created>
@@ -115,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591030890667</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="operator []">
+      <created>1591268554293</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591268554294</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,20 +140,22 @@
     <MESSAGE value="added overloaded for:&#10;operator +&#10;&#10;added function in + for removing duplicates" />
     <MESSAGE value="tests" />
     <MESSAGE value="remove duplicates working with &lt;int,const char*&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove duplicates working with &lt;int,const char*&gt;" />
+    <MESSAGE value="operator []" />
+    <option name="LAST_COMMIT_MESSAGE" value="operator []" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="364" y="68" width="1393" height="914" key="CommitChangelistDialog2" timestamp="1591042325920">
+    <state x="364" y="68" width="1393" height="914" key="CommitChangelistDialog2" timestamp="1591268553369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="364" y="68" width="1393" height="914" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042325920" />
+    <state x="364" y="68" width="1393" height="914" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591268553369" />
     <state width="447" height="466" key="DebuggerActiveHint" timestamp="1591020811346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="447" height="466" key="DebuggerActiveHint/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591020811346" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591030719199">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-787" y="260" key="FileChooserDialogImpl" timestamp="1591297339758">
+      <screen x="-1280" y="0" width="1280" height="984" />
     </state>
+    <state x="-787" y="260" key="FileChooserDialogImpl/0.0.1920.1040/-1280.0.1280.984@-1280.0.1280.984" timestamp="1591297339758" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591030719199" />
     <state x="772" y="418" key="Github.ShareDialog" timestamp="1590945107761">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -152,22 +165,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590945112846" />
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom" timestamp="1591042328471">
+    <state width="1877" height="235" key="GridCell.Tab.0.bottom" timestamp="1591341978663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042328471" />
-    <state width="1877" height="361" key="GridCell.Tab.0.center" timestamp="1591042328471">
+    <state width="1237" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@-1280.0.1280.984" timestamp="1591315109569" />
+    <state width="1877" height="235" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591341978663" />
+    <state width="1877" height="235" key="GridCell.Tab.0.center" timestamp="1591341978663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042328471" />
-    <state width="1877" height="361" key="GridCell.Tab.0.left" timestamp="1591042328471">
+    <state width="1237" height="220" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@-1280.0.1280.984" timestamp="1591315109569" />
+    <state width="1877" height="235" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591341978663" />
+    <state width="1877" height="235" key="GridCell.Tab.0.left" timestamp="1591341978663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042328471" />
-    <state width="1877" height="361" key="GridCell.Tab.0.right" timestamp="1591042328471">
+    <state width="1237" height="220" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@-1280.0.1280.984" timestamp="1591315109569" />
+    <state width="1877" height="235" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591341978663" />
+    <state width="1877" height="235" key="GridCell.Tab.0.right" timestamp="1591341978663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042328471" />
+    <state width="1237" height="220" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@-1280.0.1280.984" timestamp="1591315109569" />
+    <state width="1877" height="235" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591341978663" />
     <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1591042328471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -184,9 +201,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042328471" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591042319446">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591268557618">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591042319446" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1591268557618" />
   </component>
 </project>

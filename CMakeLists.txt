@@ -3,4 +3,4 @@ project(FMI_Homework_Relations_FN45711)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(FMI_Homework_Relations_FN45711 main.cpp BinaryRelation.hpp)
+add_executable(FMI_Homework_Relations_FN45711 main.cpp BinaryRelation.hpp KnowledgeBase.hpp)
