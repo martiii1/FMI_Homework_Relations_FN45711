@@ -26,6 +26,7 @@ public:
     BinaryRelation &BinaryRelation::operator*=(const BinaryRelation<T, U> &other);
 
     BinaryRelation &BinaryRelation::operator^(const BinaryRelation<T, U> &other);
+
     BinaryRelation &BinaryRelation::operator^=(const BinaryRelation<T, U> &other);
 
 
@@ -49,6 +50,8 @@ public:
     void ran();
 
     bool function();
+
+    bool injection();
 
 private:
     T *fRelationsFirst;
@@ -551,5 +554,35 @@ BinaryRelation<T,U> &BinaryRelation<T, U>::operator^=(const BinaryRelation<T,U> 
 template<typename T, typename U>
 bool BinaryRelation<T, U>::function()
 {
-    return false;
+    for (int i = 0; i < fSize; ++i)
+    {
+        for (int j = i + 1; j < fSize; ++j)
+        {
+            if(fRelationsFirst[i] == fRelationsFirst[j])
+            {
+                return false;
+            }
+
+        }
+    }
+
+    return true;
+}
+
+template<typename T, typename U>
+bool BinaryRelation<T, U>::injection()
+{
+    for (int i = 0; i < fSize; ++i)
+    {
+        for (int j = i + 1; j < fSize; ++j)
+        {
+            if(fRelationsSecond[i] == fRelationsSecond[j])
+            {
+                return false;
+            }
+
+        }
+    }
+
+    return true;
 }

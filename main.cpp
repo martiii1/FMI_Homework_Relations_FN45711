@@ -17,7 +17,8 @@ int main()
     test2.addRelation(6,66);
     test2.addRelation(11,1111);
     test2.addRelation(2,22);
-
+    // test2.addRelation(5,555); // test2 is not partial function ( test2.function() -> false )
+    // test2.addRelation(8,22);  // test2 is not injection ( test2.injection() -> false )
 
     test1.printAllRelations();
     std::cout << "\n\n\n";
@@ -35,6 +36,8 @@ int main()
     test1^=test2;
     test1.printAllRelations();
     std::cout << "\n\n\n";
+
+    std::cout << test2.injection();
 
 
     return 0;
